@@ -1,0 +1,13 @@
+servers:
+  pool: "wss://pool.sci16z.com"
+  api: "https://api.sci16z.com"
+  docs: "https://docs.sci16z.com"
+  frontend: "https://sci16z.com"
+
+endpoints:
+  task_pool: "{pool}/ws/tasks"
+  model_download: "{api}/v1/models"
+  metrics: "{api}/v1/metrics"
+  wallet: "{api}/v1/wallet"
+  verify: "{api}/v1/verify"
+  status: "{api}/v1/status" 

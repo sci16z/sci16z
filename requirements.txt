@@ -1,0 +1,36 @@
+# Core dependencies
+cryptography>=41.0.0
+aiohttp>=3.8.0
+PyMuPDF>=1.20.0  # For PDF processing
+torch>=2.0.0     # For ML models
+transformers>=4.30.0  # For NLP models
+tensorflow>=2.13.0  # For GPU monitoring
+langchain>=0.0.300  # For LLM integration
+numpy>=1.24.0
+pandas>=2.0.0
+
+# System monitoring
+psutil>=5.9.0
+gputil>=1.4.0    # For GPU monitoring
+
+# GUI
+PyQt6>=6.5.0
+qtawesome>=1.2.0
+gradio>=3.50.0  # For web UI components
+
+# Utilities
+tqdm>=4.65.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+sqlalchemy>=2.0.0
+aiosqlite>=0.19.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Development
+black>=23.3.0
+isort>=5.12.0
+mypy>=1.4.0 

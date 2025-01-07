@@ -1,0 +1,31 @@
+# 基础配置
+app_name: "Sci16Z Node"
+version: "1.0.0"
+
+# 网络配置
+pool:
+  url: "wss://pool.sci16z.com"
+  heartbeat_interval: 30  # 秒
+
+# 模型配置
+model:
+  default: "ollama-7b"  # 或 "ollama-3b"
+  gpu_enabled: true
+  max_memory: "12G"
+  batch_size: 1
+
+# TEE配置
+tee:
+  enabled: true
+  enclave_path: "/opt/sci16z/enclave"
+  
+# 存储配置
+storage:
+  pdf_cache: "./cache/pdf"
+  model_cache: "./cache/models"
+  
+# GUI配置
+gui:
+  enabled: true
+  port: 7860
+  theme: "light" 
