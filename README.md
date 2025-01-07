@@ -4,7 +4,7 @@
 
 ## Tips
 
-The project is still under development, and nodes will be online in the coming weeks.
+The project is still under development, and nodes and pool will be online in the coming weeks.
 
 ## Overview
 
