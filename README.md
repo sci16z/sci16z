@@ -123,6 +123,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 ## Community
 
 
+- Website: [https://sci16z.com](https://sci16z.com)
 - Twitter: [@sci16z](https://x.com/sci16z)
 - Discord: coming soon
 - Telegram: coming soon
