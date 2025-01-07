@@ -1,8 +1,10 @@
 # A decentralized AI paper analysis tool
 
-### Supported by $scihub community and [@sporedotfun](https://x.com/sporedotfun)
+### Supported by [$scihub community](https://t.me/WTFDeSci) and [@sporedotfun](https://x.com/sporedotfun)
 
+## Tips
 
+The project is still under development, and nodes will be online in the coming weeks.
 
 ## Overview
 
