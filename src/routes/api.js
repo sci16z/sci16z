@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { apiClient } = require('../utils/apiClient');
 const { logger } = require('../utils/logger');
+const path = require('path');
 
 // Get latest papers
 router.get('/papers/latest', async (req, res) => {
@@ -48,6 +49,29 @@ router.get('/stats', async (req, res) => {
     } catch (error) {
         logger.error('API - Failed to get stats:', error);
         res.status(500).json({ error: 'Failed to fetch stats' });
+    }
+});
+
+// Download installer
+router.get('/downloads/installer.sh', (req, res) => {
+    const filePath = path.join(__dirname, '../public/downloads/installer.sh');
+    res.download(filePath, 'sci16z-installer.sh', (err) => {
+        if (err) {
+            logger.error('Download failed:', err);
+            res.status(500).json({ error: 'Failed to download installer' });
+        }
+    });
+});
+
+// Track downloads
+router.post('/downloads/track', async (req, res) => {
+    try {
+        const { fileId, nodeId } = req.body;
+        await apiClient.trackDownload(fileId, nodeId);
+        res.json({ success: true });
+    } catch (error) {
+        logger.error('Failed to track download:', error);
+        res.status(500).json({ error: 'Failed to track download' });
     }
 });
 

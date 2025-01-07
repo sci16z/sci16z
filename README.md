@@ -1,241 +1,137 @@
-# Sci16Z Distributed Computing Node
+# A decentralized AI paper analysis tool
 
-Sci16Z is a distributed scientific computing platform consisting of three main components: Computing Node, Task Pool, and Frontend Service.
+### Supported by $scihub community and [@sporedotfun](https://x.com/sporedotfun)
 
-## System Requirements
 
-- Python 3.9+
-- CUDA 11.7+ (for GPU acceleration, optional)
-- 8GB+ RAM
-- 10GB+ available disk space
+
+## Overview
+
+Sci16z is a decentralized platform that leverages community computing power to analyze academic papers. By joining our network, users can earn tokens while contributing to scientific research accessibility.
+
+## Key Features
+
+- 🔍 **AI-Powered Analysis**
+  - Automatic paper summarization
+  - Key findings extraction
+  - Fast cross-language translation
+  - Citation network analysis
+
+- 💰 **Token Economics**
+  - Earn tokens by sharing computing power
+  - Reward distribution based on contribution
+  - Community governance system
+
+- 🌐 **Decentralized Network**
+  - Distributed computing architecture
+  - Peer-to-peer paper sharing
+  - Community-driven development
+
+- 🛠 **Easy Setup**
+  - One-click node installation
+  - Browser-based interface
+  - No technical expertise required
 
 ## Quick Start
 
-### 0. One-Click Setup
+1. Install Node.js (v16 or later)
 ```bash
-# On Linux/Mac:
-./scripts/setup.sh
-
-# On Windows:
-scripts\setup.bat
-
-# Or use CLI tool
-python sci16z/node/src/cli.py setup
+npm install
+npm run dev
 ```
 
-### 1. Environment Setup
-
+2. Configure environment variables
 ```bash
-# Create virtual environment
-python -m venv .venv
+cp .env.example .env.local
+```
 
-# Activate virtual environment
-# Windows:
-.venv\Scripts\activate
-# Linux/Mac:
-source .venv/bin/activate
+3. Download and run a node
+```bash
+# Download the installer
+wget https://sci16z.com/downloads/installer.sh
 
+# Run the installer
+bash installer.sh
+```
+
+## Architecture
+
+```mermaid
+graph TD
+    A[User Browser] --> B[Frontend Service]
+    B --> C[Task Pool]
+    D[Computing Node] --> C
+    E[Computing Node] --> C
+    C --> F[Result Storage]
+    F --> B
+```
+
+## Development
+
+### Prerequisites
+- Node.js v16+
+- Python 3.8+
+- CUDA 11.7+ (for GPU support)
+
+### Local Development
+```bash
 # Install dependencies
-pip install -r requirements.txt
-```
-
-### 2. Start Computing Node
-
-```bash
-# Configure environment variables
-export NODE_ENV=development  # or production
-# Pool URL will be loaded from config/server.yaml
-
-# Start node
-python sci16z/node/src/main.py
-```
-
-Configuration files are located in `sci16z/node/config/`:
-- `config.yaml`: Basic configuration
-- `models.yaml`: Model configuration
-- `security.yaml`: Security configuration
-
-### 3. Start Task Pool
-
-```bash
-# Configure environment variables
-export POOL_ENV=development
-export POOL_PORT=8080
-export DB_URL=sqlite:///pool.db
-
-# Initialize database
-python sci16z/pool/src/init_db.py
-
-# Start task pool service
-python sci16z/pool/src/main.py
-```
-
-Task pool configuration file is located at `sci16z/pool/config/config.yaml`
-
-### 4. Start Frontend Service
-
-```bash
-# Install frontend dependencies
-cd sci16z/frontend
 npm install
 
-# Start in development mode
+# Start development server
 npm run dev
 
-# Build for production
-npm run build
-npm run start
+# Run tests
+npm test
 ```
 
-Frontend configuration file is located at `sci16z/frontend/.env`
-
-## Deployment Guide
-
-### Docker Deployment
-
-1. Build Images
+### Production Deployment
 ```bash
-# Build node image
-docker build -t sci16z-node -f docker/node/Dockerfile .
-
-# Build pool image
-docker build -t sci16z-pool -f docker/pool/Dockerfile .
-
-# Build frontend image
-docker build -t sci16z-frontend -f docker/frontend/Dockerfile .
-```
-
-2. Start with docker-compose
-```bash
-docker-compose up -d
-```
-
-### Manual Deployment
-
-1. Node Deployment
-```bash
-# Install system dependencies
-sudo apt-get update
-sudo apt-get install python3-dev build-essential
-
-# Install CUDA (optional)
-# Follow NVIDIA official documentation
-
-# Clone repository
-git clone https://github.com/sci16z/sci16z.git
-cd sci16z
-
-# Install dependencies
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-# Configure service
-sudo cp deploy/systemd/sci16z-node.service /etc/systemd/system/
-sudo systemctl enable sci16z-node
-sudo systemctl start sci16z-node
-```
-
-2. Pool Deployment
-```bash
-# Configure service
-sudo cp deploy/systemd/sci16z-pool.service /etc/systemd/system/
-sudo systemctl enable sci16z-pool
-sudo systemctl start sci16z-pool
-```
-
-3. Frontend Deployment
-```bash
-# Install Node.js
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
 # Build frontend
-cd sci16z/frontend
-npm install
 npm run build
 
-# Configure Nginx
-sudo cp deploy/nginx/sci16z.conf /etc/nginx/conf.d/
-sudo nginx -t
-sudo systemctl reload nginx
+# Start production server
+npm start
 ```
 
-## Debugging Guide
+## Contributing
 
-### Node Debugging
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-1. Enable debug logging
-```bash
-export LOG_LEVEL=DEBUG
-```
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-2. Debug with VSCode
-- Open project
-- Select debug configuration "Python: Sci16Z Node"
-- Press F5 to start debugging
+## Community
 
-### Pool Debugging
-
-1. Enable debug mode
-```bash
-export POOL_DEBUG=true
-```
-
-2. Monitor database
-```bash
-python sci16z/pool/tools/monitor_db.py
-```
-
-### Frontend Debugging
-
-1. Enable dev tools
-```bash
-# Set in .env
-VITE_DEV_TOOLS=true
-```
-
-2. Use Chrome DevTools
-- Open Chrome DevTools
-- Switch to Network tab to monitor WebSocket connections
-- Use Vue DevTools for component debugging
-
-## Common Issues
-
-1. Node Cannot Connect to Pool
-- Check network connection
-- Verify pool address configuration
-- Check firewall settings
-
-2. GPU Not Available
-- Confirm CUDA installation
-- Check GPU driver version
-- Verify PyTorch CUDA version
-
-3. High Memory Usage
-- Adjust memory limits in `config.yaml`
-- Check concurrent task settings
-- Consider increasing system memory
-
-## Additional Resources
-
-- [Full Documentation](https://docs.sci16z.com)
-- [API Documentation](https://api.sci16z.com)
-- [Issue Tracker](https://github.com/your-org/sci16z/issues)
-- [Contributing Guide](CONTRIBUTING.md)
+- Twitter: [@sporedotfun](https://x.com/sporedotfun)
+- Discord: [Join our server](https://discord.gg/sci16z)
+- Telegram: [Join our group](https://t.me/sci16z)
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This README includes:
-1. System requirements
-2. Quick start guide
-3. Detailed deployment steps
-4. Debugging guide
-5. Common issues and solutions
-6. Additional resources
-7. License information
+## Acknowledgments
 
-All content is in English and formatted for better readability.
+- $scihub community for their support
+- All contributors and node operators
+- The open-source community
+
+## Security
+
+For security concerns, please email security@sci16z.com
+
+## Roadmap
+
+- [x] Basic paper analysis
+- [x] Token distribution system
+- [ ] Enhanced AI models
+- [ ] Mobile app support
+- [ ] Cross-chain integration
+- [ ] DAO governance
+
+---
+
+<p align="center">Made with ❤️ by the Sci16z community</p>

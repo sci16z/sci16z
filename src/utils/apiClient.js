@@ -65,6 +65,19 @@ class ApiClient {
             throw error;
         }
     }
+
+    async trackDownload(fileId, nodeId) {
+        try {
+            const response = await this.client.post('/downloads/track', {
+                fileId,
+                nodeId
+            });
+            return response.data;
+        } catch (error) {
+            logger.error('Failed to track download:', error);
+            throw error;
+        }
+    }
 }
 
 module.exports = {
