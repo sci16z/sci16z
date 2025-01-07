@@ -120,9 +120,10 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ## Community
 
-- Twitter: [@sporedotfun](https://x.com/sporedotfun)
-- Discord: [Join our server](https://discord.gg/sci16z)
-- Telegram: [Join our group](https://t.me/sci16z)
+
+- Twitter: [@sci16z](https://x.com/sci16z)
+- Discord: coming soon
+- Telegram: coming soon
 
 ## License
 
