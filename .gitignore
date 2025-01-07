@@ -32,6 +32,7 @@ logs/
 .env
 .env.local
 .env.*.local
+!.env.development.local  # 排除开发环境配置文件
 
 # IDE 配置文件
 .idea/
@@ -92,3 +93,9 @@ datasets/
 coverage/
 .coverage
 coverage.xml 
+
+# Assets
+src/public/assets/images/*.png
+src/public/assets/images/*.jpg
+src/public/assets/images/*.jpeg
+!src/public/assets/images/hero.png 

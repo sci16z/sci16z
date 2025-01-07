@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sci16z</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="../assets/logo.svg" alt="Sci16z Logo">
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/dashboard" class="active">Dashboard</a>
+                <a href="https://twitter.com/sci16z" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard">
+        <div class="container">
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <h3>Active Nodes</h3>
+                    <p class="stat-number" id="active-nodes">1</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Papers Processed</h3>
+                    <p class="stat-number" id="papers-processed">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Tokens Earned</h3>
+                    <p class="stat-number" id="tokens-earned">0</p>
+                </div>
+            </div>
+
+            <div class="join-network">
+                <h2>Join the Network</h2>
+                <p>Start earning tokens by contributing your computing power to scientific research.</p>
+                <div class="action-buttons">
+                    <a href="/downloads/sci16z-node-installer.exe" class="btn primary">Download Node Installer</a>
+                    <a href="/docs/quick-start" class="btn secondary">View Setup Guide</a>
+                </div>
+            </div>
+
+            <div class="nodes-list">
+                <h2>Active Nodes</h2>
+                <div class="nodes-grid" id="nodes-grid">
+                    <!-- Default node -->
+                    <div class="node-card">
+                        <div class="node-header">
+                            <h3>Node-001</h3>
+                            <span class="status active">Active</span>
+                        </div>
+                        <div class="node-stats">
+                            <div class="stat">
+                                <label>Uptime</label>
+                                <span>99.9%</span>
+                            </div>
+                            <div class="stat">
+                                <label>Papers Processed</label>
+                                <span>1,234</span>
+                            </div>
+                            <div class="stat">
+                                <label>Tokens/Hour</label>
+                                <span>5.6</span>
+                            </div>
+                        </div>
+                        <div class="node-footer">
+                            <span class="last-seen">Last seen: 2 minutes ago</span>
+                        </div>
+                    </div>
+                    <!-- Empty state -->
+                    <div class="empty-state hidden">
+                        <img src="../assets/empty-nodes.svg" alt="No nodes found">
+                        <p>No additional nodes connected. Be the first to join!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Sci16z. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/dashboard.js"></script>
+</body>
+</html> 
