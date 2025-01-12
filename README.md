@@ -1,6 +1,6 @@
 # A decentralized AI paper analysis tool
 
-### Supported by [$scihub community](https://t.me/WTFDeSci) and [@sporedotfun](https://x.com/sporedotfun)
+### Supported by [@sporedotfun](https://x.com/sporedotfun)
 
 ## Tips
 
@@ -134,7 +134,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- $scihub community for their support
 - All contributors and node operators
 - The open-source community
 
